@@ -1,0 +1,155 @@
+<html>
+<head>
+    <meta name="theme-color" content="#448833"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type='text/css' rel='stylesheet' href='file:///android_asset/css/handzapCSS.css'/>
+    <script src='file:///android_asset/js/jquery-3.1.0.min.js' >
+    </script><script src='file:///android_asset/js/via.js' ></script>
+    <link href='file:///android_asset/css/font-awesome.min.css' rel='stylesheet'/>
+</head>
+<body>
+<div class="msg"></div>
+<div class="p-5">
+    <center><br>
+        <form id="newPostForm" method="post" name="newPostForm">
+            <div class="inputWrapper">
+                <input class="textField" type="text" required="" accepted="100" name="postTitle" value=""/>
+                <span class="movLabel">Post Title</span>
+                <p class="countLabel rightAlText npdn nmgn"></p>
+            </div><br>
+            <div class="inputWrapper">
+                <input class="textField" type="text" required="" accepted="1000" name="Post Description" value=""/>
+                <span class="movLabel">Post Description</span>
+                <p class="countLabel rightAlText npdn nmgn"></p>
+            </div><br>
+            <div class="inputWrapper">
+                <input class="textField postCategory" id="pCat" onkeydown="return false;" type="text" required="" name="postCategories" value=""/>
+                <span class="movLabel">Post Categories</span>
+            </div>
+
+            <div class="fullWidWithBGContainer">
+                <br>
+                <div class="uHalf uL">
+                    <div class="inputWrapper">
+                        <input class="textField" type="number" pattern="(\\d*\\.?\\d*){1,}" required="" name="bgt" value=""/>
+                        <span class="movLabel">Budget</span>
+                    </div>
+                </div>
+                <div class="uHalf uR">
+                    <div class="inputWrapper">
+                        <select class="textField" required="" name="currency">
+                            <option value="INR">Select Currency</option>
+                            <option value="INR">INR &#8377;</option>
+                        </select>
+                        <!--<span class="movLabel">Currency</span>-->
+                    </div>
+                </div>
+            </div>
+            <div class="fullWidWithBGContainer">
+                <br>
+                <div class="uHalf uL">
+                    <div class="inputWrapper">
+                        <select class="textField" required="" name="rate">
+                            <option value="">Rate</option>
+                            <option value="np">No Preferences</option>
+                            <option value="fb">Fixed budget</option>
+                            <option value="hr">Hourly Rate</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="uHalf uR">
+                    <div class="inputWrapper">
+                        <select class="textField" required="" name="pm">
+                            <option value="">Payment Method</option>
+                            <option value="np">No Pref</option>
+                            <option value="online">Online</option>
+                            <option value="cash">Cash</option>
+                        </select>
+                        <!--<span class="movLabel">Currency</span>-->
+                    </div>
+                </div>
+            </div>
+            <div class="inputWrapper">
+                <input class="textField fragLoader" src="searchLocation" type="text" required="" id="pLocation" name="pLocation" value=""/>
+                <span class="movLabel">Post Location</span>
+            </div>
+            <div class="fullWidWithBGContainer">
+                <br>
+                <div class="uHalf uL">
+                    <div class="inputWrapper">
+                        <input class="textField" type="date" required="" name="sdate"  value="2018-12-01"/>
+                        <span class="movLabel">Start Date</span>
+                    </div>
+                </div>
+                <div class="uHalf uR">
+                    <div class="inputWrapper">
+                        <select class="textField" required="" name="pm">
+                            <option value="">Job Term</option>
+                            <option value="np">Recurring job</option>
+                            <option value="online">Same Day Job</option>
+                            <option value="cash">Multi Day Job</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="fullWidWithBGContainer">
+                <p class="leftAlText">Post Attachments(tap image to view larger)<br>
+                    <span class="button fa fa-plus fa-3x addImage"></span>
+                </p>
+                <div class="imgContainer" id="postImages">
+
+                </div>
+                <!--will handle file uploading seperately,using android socket-->
+
+            </div>
+            <br><br>
+            <button class="button createPost" >Proceed</button>
+            <br><br>
+        </form>
+    </center>
+</div>
+<script>
+        $(".textField").on("keyup",function(){
+                if(this.getAttribute("accepted")){
+                    var obj=$(this.nextSibling.nextSibling.nextSibling.nextSibling);
+                    obj.html(this.getAttribute("accepted")-this.value.length+" characters left");
+                }
+            });
+            $(".postCategory").on("click",function(){
+                js.postCategory();
+            });
+            $(".fragLoader").on("click",function(){
+                js.fetchLoc();
+            });
+            $(".addImage").on("click",function(){
+                js.addImage();
+            });
+        $(".textField").on("focus",function(){
+                if(this.getAttribute("accepted")){
+                    var obj=$(this.nextSibling.nextSibling.nextSibling.nextSibling);
+                    obj.html(this.getAttribute("accepted")-this.value.length+" characters left");
+                }
+            });
+        $(".textField").on("blur",function(){
+                if(this.getAttribute("accepted")){
+                    var obj=$(this.nextSibling.nextSibling.nextSibling.nextSibling);
+                    obj.html("");
+                }
+            });
+        $(".createPost").on("click",function(){
+          showMes("<img src='images/loader.svg' width=50 height=50/>");
+          var formData=$("#newPostForm").serialize();
+          $.post("test",formData,function(data){
+              showMes(data);
+              if(data.indexOf("success")>-1){
+                  $("#newPostForm")[0].reset();
+              }
+          }).fail(function(){
+              showMes("Failed to upload because of no server script found",true);
+          });
+          return false;
+        });
+
+    </script>
+</body>
+</html>

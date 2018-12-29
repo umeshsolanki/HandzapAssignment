@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/secActLL"
+    android:layout_height="match_parent">
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/location"
+            android:hint="Location"
+            android:background="#efefef"
+            android:padding="5dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/saveLoc"
+            android:text="choose"
+            android:layout_height="wrap_content" />
+</LinearLayout>

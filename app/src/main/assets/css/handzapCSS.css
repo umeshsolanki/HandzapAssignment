@@ -1,0 +1,284 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28 Dec, 2018, 7:07:00 PM
+    Author     : UMESH-ADMIN
+*/
+.fullWidWithBGContainer{
+max-width:100%;
+width:100%;
+min-width:100%;
+overflow:hidden;
+position: relative;
+}
+.imgPicked{
+height:70px;width:auto;
+max-width:95%;
+}
+.imgPicked:hover{
+    height:200px;width:auto;
+}
+.p-5{
+padding:5px;
+}
+.countLabel{
+font-size:.7em;
+}
+.msg{
+    max-height: 500px;
+    overflow: auto;
+    transition: width 2s;
+    cursor: default;
+    /*left: 50%;*/
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 1px 10px;
+    /*top:55px;*/
+    font-family: sans-serif roboto;
+    /*transform: translate(-50%,-5%);*/
+    background-color: #efefef;
+    border-radius: 2px;
+    position:fixed;
+    color:#fff;
+    z-index: 99999;
+}
+.close{
+    color:#fff;
+    font-weight: 900;
+    font-family: sans-serif;
+    cursor: default;
+    position: relative;
+    right:0px;
+    background-color: red;
+    font-size: 16px;
+    top:0px;
+    float:right;
+    z-index: 9999;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+    .close:hover{
+    border-top-right-radius: 2px;
+    background-color: red;
+}
+
+.uR{
+   float: right; 
+}
+.uL{
+   float: left; 
+}
+.uR:after,.uL:after{
+    clear: both;
+}
+.uHalf{
+    /*height: 100%;*/
+    padding:0px;
+    margin: 0px;
+    max-width: 45%;
+    width: 45%;
+}
+.rightAlText{
+    text-align: right;
+}
+@media all{
+
+.nmgn{
+    margin: 0px !important;
+}
+
+.npdn{
+    padding: 0px !important;
+}
+
+select{
+        -webkit-appearance: none;
+    }
+input::-webkit-input-placeholder {
+    font-size: 14px;
+}
+}
+@media all and (max-width:768px){
+    .inputWrapper {
+                position: relative;
+                width: 96%;
+                display: inline-block;
+                min-height: 50px;
+        }
+    .inputWrapper .inputText{
+            width: 96%;
+            outline: none;
+            border:none;
+            border-bottom: 1px solid #777;
+    }
+    .inputWrapper .inputText:invalid {
+            box-shadow: none !important;
+    }
+    .inputWrapper .inputText:focus{
+            border-color: blue;
+            border-width: medium medium 2px;
+    }
+    .inputWrapper .movLabel {
+            position: absolute;
+            pointer-events: none;
+            font-size: 15px;
+            color: gray;
+            top: 7px;
+            left: 4%;
+            transition: 0.2s ease all;
+    }
+
+    .inputWrapper input::-webkit-input-placeholder {
+        color:white;
+
+    }
+    .inputWrapper input:focus ~ .movLabel,
+    .inputWrapper input:not(:focus):valid ~ .movLabel{
+            top: -10px;
+            left: 5px;
+            font-size: 10px;
+            opacity: 1;
+    }
+    ::-webkit-scrollbar-thumb{
+        height: 8px;
+        width:4px;
+
+        background-color:white;
+    }
+    ::-webkit-scrollbar-track{
+        height: 8px;
+        width:4px;
+        background-color:#789;
+    }
+    ::-webkit-scrollbar{
+        height: 8px;
+        width:4px;
+        background-color:red;
+    }
+    ::-webkit-scrollbar-corner{
+        height: 8px;
+        width:4px;
+
+        background-color: white;
+    }
+    ::-webkit-scrollbar:horizontal{
+    height: 8px;
+    width:4px;
+    background-color:dodgerblue;
+}
+    body{
+        transition: width 2s;
+        margin: 0px;
+        padding: 0px;
+        background: #efefef;
+        background-size: 100%;
+
+    }
+
+    .textField{
+        background:none;
+        margin:2px;
+        color: blue;
+        min-width: 96%;
+        border-bottom:2px solid black;
+        border-top:none;
+        border-left:none;
+        border-right:none;
+        border-radius: 2px;
+        outline: none;
+        padding: 5px;
+    }
+    select.textField{
+        color: black;
+    }
+    .textField:focus{
+        border-bottom-color: blue;
+    }
+
+    .button{
+        box-shadow: inset 0 1px 0 #FDFDFC;
+        border: 1px solid black;
+        border-radius: 3px;
+        padding: 4px 10px 4px 10px;
+        cursor: pointer;
+        max-width: 300px;
+        color:#000;
+        margin: 1px;
+        font-size: 14px;
+        box-shadow: #fff -1px -1px 2px 1px;
+    }
+    .button:hover{
+        box-shadow: #fff 1px 1px 5px;
+        color:green;
+    }
+    .leftAlText{
+    text-align:left;
+    }
+    .success{
+        color: #119911;
+        font-weight: 700;
+    }
+    .fail{
+        color: #99ffff;
+    }
+
+    .loginForm{
+    transition: width 2s;
+    min-width: 100%;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    max-width: 100%;
+    position: relative;
+    box-shadow:  #333 0px 1px 15px 1px;
+    padding:0px;
+    background: #efefef;
+        background-size: 100% ;
+
+    /*background-color: #1e90ff;*/
+    border:#fff 1px solid;
+    border-radius: 2px;
+    margin-top:0%;
+    alignment-adjust: central;
+}
+
+    .txtCenter{
+    text-align: center;
+}
+    .center{
+    left: 50%;
+    transform: translate(-50%,0);
+}
+    .matchParentWid{
+    width: 100%;
+}
+    a,li{
+        list-style: none;
+    text-decoration: none;
+}
+   .images{
+    width:100%;
+    height:100%;
+}
+    .lShadow{
+      box-shadow: #000 -1px 0px 10px;
+    }
+    .rShadow{
+      box-shadow: #000 1px 0px 10px;
+    }
+    .bShadow{
+      box-shadow: #000 0px 1px 10px;
+    }
+    .tShadow{
+      box-shadow: #000 0px -1px 10px;
+    }
+    .shadow{
+     box-shadow: #000 0px 0px 15px 2px;
+    }
+    .inShadow{
+     box-shadow:inset #000 0px 0px 15px;
+    }
+}
